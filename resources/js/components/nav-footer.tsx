@@ -7,9 +7,11 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { analyzeUrl } from '@/lib/url';
 import { resolveUrl } from '@/lib/utils';
 import { type NavItem } from '@/types';
 import { type ComponentPropsWithoutRef } from 'react';
+import { XALink, XLink } from './ui/xlink';
 
 export function NavFooter({
     items,
@@ -25,28 +27,32 @@ export function NavFooter({
         >
             <SidebarGroupContent>
                 <SidebarMenu>
-                    {items.map((item) => (
-                        <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton
-                                asChild
-                                className="text-neutral-600 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-100"
-                            >
-                                <a
-                                    href={resolveUrl(item.href)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                    {items.map((item) => {
+                        const urlInfo = analyzeUrl(item.href)
+                        const NavigateComponent = urlInfo.isExternal ? XALink : XLink
+                        return (
+                            <SidebarMenuItem key={item.title}>
+                                <SidebarMenuButton
+                                    asChild
+                                    className="text-neutral-600 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-100"
                                 >
-                                    {item.icon && (
-                                        <Icon
-                                            iconNode={item.icon}
-                                            className="h-5 w-5"
-                                        />
-                                    )}
-                                    <Text>{item.title}</Text>
-                                </a>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    ))}
+                                    <NavigateComponent
+                                        href={resolveUrl(item.href)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {item.icon && (
+                                            <Icon
+                                                iconNode={item.icon}
+                                                className="h-5 w-5"
+                                            />
+                                        )}
+                                        <Text>{item.title}</Text>
+                                    </NavigateComponent>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        )
+                    })}
                 </SidebarMenu>
             </SidebarGroupContent>
         </SidebarGroup>
