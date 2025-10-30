@@ -23,10 +23,7 @@ import { edit } from '@/routes/profile';
 import { type User } from '@/types';
 import { LogOutIcon, Settings } from 'lucide-react';
 import { useState } from 'react';
-
-interface UserMenuContentProps {
-    user: User;
-}
+import { UserMenuContentProps } from '@/types/components/user-menu-content';
 
 export function UserMenuContent({ user }: UserMenuContentProps) {
     const cleanup = useMobileNavigation();

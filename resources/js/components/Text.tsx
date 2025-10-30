@@ -5,7 +5,7 @@ import {
     TextWeight,
     TextAlign,
     TextProps
-} from '@/types/components/text.types';
+} from '@/types/components/text';
 
 export const getSizeClasses = (size: TextSize) => {
     const sizeClass = size

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Appearance } from '@/types/hooks/appearance';
 
-export type Appearance = 'light' | 'dark' | 'system';
+// Re-export the type for backward compatibility
+export type { Appearance };
 
 const prefersDark = () => {
     if (typeof window === 'undefined') {

@@ -38,14 +38,10 @@ import { Menu, Search } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 import { footerNavItems, mainNavItems } from '@/configs/menu-sidebar';
-
+import { AppHeaderProps } from '@/types/components/app-header';
 
 const activeItemStyles =
     'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100';
-
-interface AppHeaderProps {
-    breadcrumbs?: BreadcrumbItem[];
-}
 
 export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
     const page = usePage<SharedData>();

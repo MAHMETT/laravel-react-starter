@@ -1,4 +1,4 @@
-import { ENV_APP, EnvConfig } from '@/types/env.types';
+import { ENV_APP, EnvConfig } from '@/types/env';
 
 // Fungsi untuk parsing nilai boolean dari string
 const parseBoolean = (

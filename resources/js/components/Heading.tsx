@@ -8,7 +8,7 @@ import {
 
 import {
     HeadingProps
-} from '@/types/components/heading.types';
+} from '@/types/components/heading';
 
 export function Heading({
     as: Tag = 'h1',

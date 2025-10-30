@@ -12,11 +12,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Form, Head } from '@inertiajs/react';
 import { ShieldBan, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
-
-interface TwoFactorProps {
-    requiresConfirmation?: boolean;
-    twoFactorEnabled?: boolean;
-}
+import { TwoFactorProps } from '@/types/pages/admin/settings/two-factor';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

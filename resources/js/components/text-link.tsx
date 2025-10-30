@@ -1,14 +1,12 @@
 import { XLink } from '@/components/ui/xlink';
 import { cn } from '@/lib/utils';
-import { ComponentProps } from 'react';
-
-type LinkProps = ComponentProps<typeof Link>;
+import { TextLinkProps } from '@/types/components/text-link';
 
 export default function TextLink({
     className = '',
     children,
     ...props
-}: LinkProps) {
+}: TextLinkProps) {
     return (
         <XLink
             className={cn(
