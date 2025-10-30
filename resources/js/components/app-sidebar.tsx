@@ -10,9 +10,9 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { XLink } from '@/components/ui/xlink';
 import { footerNavItems, mainNavItems } from '@/configs/menu-sidebar';
 import { dashboard } from '@/routes';
-import { Link } from '@inertiajs/react';
 import AppLogo from './app-logo';
 
 export function AppSidebar() {
@@ -22,9 +22,9 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
+                            <XLink href={dashboard()} prefetch>
                                 <AppLogo />
-                            </Link>
+                            </XLink>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>

@@ -1,6 +1,7 @@
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
+import { XLink } from '@/components/ui/xlink';
 
 export default function Welcome({
     canRegister = true,
@@ -22,27 +23,27 @@ export default function Welcome({
                 <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
                     <nav className="flex items-center justify-end gap-4">
                         {auth.user ? (
-                            <Link
+                            <XLink
                                 href={dashboard()}
                                 className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
                             >
                                 Dashboard
-                            </Link>
+                            </XLink>
                         ) : (
                             <>
-                                <Link
+                                <XLink
                                     href={login()}
                                     className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
                                 >
                                     Log in
-                                </Link>
+                                </XLink>
                                 {canRegister && (
-                                    <Link
+                                    <XLink
                                         href={register()}
                                         className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
                                     >
                                         Register
-                                    </Link>
+                                    </XLink>
                                 )}
                             </>
                         )}
@@ -68,7 +69,7 @@ export default function Welcome({
                                     </span>
                                     <span>
                                         Read the
-                                        <a
+                                        <XLink
                                             href="https://laravel.com/docs"
                                             target="_blank"
                                             className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
@@ -88,7 +89,7 @@ export default function Welcome({
                                                     strokeLinecap="square"
                                                 />
                                             </svg>
-                                        </a>
+                                        </XLink>
                                     </span>
                                 </li>
                                 <li className="relative flex items-center gap-4 py-2 before:absolute before:top-0 before:bottom-1/2 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A]">
@@ -99,7 +100,7 @@ export default function Welcome({
                                     </span>
                                     <span>
                                         Watch video tutorials at
-                                        <a
+                                        <XLink
                                             href="https://laracasts.com"
                                             target="_blank"
                                             className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
@@ -119,19 +120,19 @@ export default function Welcome({
                                                     strokeLinecap="square"
                                                 />
                                             </svg>
-                                        </a>
+                                        </XLink>
                                     </span>
                                 </li>
                             </ul>
                             <ul className="flex gap-3 text-sm leading-normal">
                                 <li>
-                                    <a
+                                    <XLink
                                         href="https://cloud.laravel.com"
                                         target="_blank"
                                         className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
                                     >
                                         Deploy now
-                                    </a>
+                                    </XLink>
                                 </li>
                             </ul>
                         </div>

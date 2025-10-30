@@ -31,7 +31,8 @@ import { useInitials } from '@/hooks/use-initials';
 import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem, type SharedData } from '@/types';
-import { Link, usePage } from '@inertiajs/react';
+import { XLink } from '@/components/ui/xlink';
+import { usePage } from '@inertiajs/react';
 import { Menu, Search } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
@@ -79,7 +80,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                     <div className="flex h-full flex-col justify-between text-sm">
                                         <div className="flex flex-col space-y-4">
                                             {mainNavItems.map((item) => (
-                                                <Link
+                                                <XLink
                                                     key={item.title}
                                                     href={item.href}
                                                     className="flex items-center space-x-2 font-medium"
@@ -91,7 +92,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                         />
                                                     )}
                                                     <span>{item.title}</span>
-                                                </Link>
+</XLink>
                                             ))}
                                         </div>
 
@@ -120,13 +121,13 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                         </Sheet>
                     </div>
 
-                    <Link
+                    <XLink
                         href={dashboard()}
                         prefetch
                         className="flex items-center space-x-2"
                     >
                         <AppLogo />
-                    </Link>
+                    </XLink>
 
                     {/* Desktop Navigation */}
                     <div className="ml-6 hidden h-full items-center space-x-6 lg:flex">
@@ -137,7 +138,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                         key={index}
                                         className="relative flex h-full items-center"
                                     >
-                                        <Link
+                                        <XLink
                                             href={item.href}
                                             className={cn(
                                                 navigationMenuTriggerStyle(),
@@ -155,7 +156,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                 />
                                             )}
                                             {item.title}
-                                        </Link>
+                                        </XLink>
                                         {isSameUrl(page.url, item.href) && (
                                             <div className="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"></div>
                                         )}

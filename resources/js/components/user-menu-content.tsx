@@ -1,16 +1,4 @@
-import {
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-} from '@/components/ui/dropdown-menu';
-import { UserInfo } from '@/components/user-info';
-import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
-import { logout } from '@/routes';
-import { edit } from '@/routes/profile';
-import { type User } from '@/types';
-import { Link, router } from '@inertiajs/react';
-import { LogOut, LogOutIcon, Settings } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import {
     Dialog,
     DialogContent,
@@ -20,7 +8,20 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+import {
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+} from '@/components/ui/dropdown-menu';
+import { XLink } from '@/components/ui/xlink';
+import { router } from '@inertiajs/react';
+import { UserInfo } from '@/components/user-info';
+import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
+import { logout } from '@/routes';
+import { edit } from '@/routes/profile';
+import { type User } from '@/types';
+import { LogOutIcon, Settings } from 'lucide-react';
 import { useState } from 'react';
 
 interface UserMenuContentProps {
@@ -51,7 +52,7 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
-                    <Link
+                    <XLink
                         className="block w-full"
                         href={edit()}
                         as="button"
@@ -60,19 +61,22 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
                     >
                         <Settings className="mr-2" />
                         Settings
-                    </Link>
+                    </XLink>
                 </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-                <Dialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+                <Dialog
+                    open={showConfirmDialog}
+                    onOpenChange={setShowConfirmDialog}
+                >
                     <DialogTrigger asChild>
                         <button
-                            className="flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                            className="flex w-full cursor-default items-center rounded-sm px-2 py-1.5 text-sm transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                             onClick={() => setShowConfirmDialog(true)}
                             data-test="logout-button"
                         >
-                            <LogOutIcon className="mr-2 text-muted-foreground size-5" />
+                            <LogOutIcon className="mr-2 size-5 text-muted-foreground" />
                             Log out
                         </button>
                     </DialogTrigger>

@@ -1,13 +1,13 @@
 import Heading from '@/components/heading';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { XLink } from '@/components/ui/xlink';
 import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
 import { edit as editAppearance } from '@/routes/appearance';
 import { edit } from '@/routes/profile';
 import { show } from '@/routes/two-factor';
 import { edit as editPassword } from '@/routes/user-password';
 import { type NavItem } from '@/types';
-import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
 
 const sidebarNavItems: NavItem[] = [
@@ -64,12 +64,12 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
                                     ),
                                 })}
                             >
-                                <Link href={item.href}>
+                                <XLink href={item.href}>
                                     {item.icon && (
                                         <item.icon className="h-4 w-4" />
                                     )}
                                     {item.title}
-                                </Link>
+                                </XLink>
                             </Button>
                         ))}
                     </nav>

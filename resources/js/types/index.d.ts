@@ -41,3 +41,25 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface BasicUrl {
+    url: string;
+    method?: string;
+}
+
+export interface InertiaHref {
+    component: string;
+    props?: {
+        url?: string;
+        [key: string]: unknown;
+    };
+}
+
+export interface ApiHref {
+    method: string;
+    path: string;
+}
+
+export type HrefValue = string | BasicUrl | InertiaHref | ApiHref | null | undefined;
+
+

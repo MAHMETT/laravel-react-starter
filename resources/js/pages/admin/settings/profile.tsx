@@ -2,7 +2,8 @@ import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileCo
 import { send } from '@/routes/verification';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Transition } from '@headlessui/react';
-import { Form, Head, Link, usePage } from '@inertiajs/react';
+import { Form, Head, usePage } from '@inertiajs/react';
+import { XLink } from '@/components/ui/xlink';
 
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
@@ -95,14 +96,14 @@ export default function Profile({
                                             <p className="-mt-4 text-sm text-muted-foreground">
                                                 Your email address is
                                                 unverified.{' '}
-                                                <Link
+                                                <XLink
                                                     href={send()}
                                                     as="button"
                                                     className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
                                                 >
                                                     Click here to resend the
                                                     verification email.
-                                                </Link>
+                                                </XLink>
                                             </p>
 
                                             {status ===

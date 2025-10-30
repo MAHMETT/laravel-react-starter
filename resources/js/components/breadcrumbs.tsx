@@ -6,8 +6,8 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { XLink } from '@/components/ui/xlink';
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
-import { Link } from '@inertiajs/react';
 import { Fragment } from 'react';
 
 export function Breadcrumbs({
@@ -31,9 +31,9 @@ export function Breadcrumbs({
                                             </BreadcrumbPage>
                                         ) : (
                                             <BreadcrumbLink asChild>
-                                                <Link href={item.href}>
+                                                <XLink href={item.href}>
                                                     {item.title}
-                                                </Link>
+                                                </XLink>
                                             </BreadcrumbLink>
                                         )}
                                     </BreadcrumbItem>
