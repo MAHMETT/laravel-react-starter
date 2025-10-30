@@ -1,3 +1,4 @@
+import { Text } from '@/components/Text';
 import {
     SidebarGroup,
     SidebarGroupLabel,
@@ -27,7 +28,7 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
                         >
                             <XLink href={item.href} prefetch>
                                 {item.icon && <item.icon />}
-                                <span>{item.title}</span>
+                                <Text>{item.title}</Text>
                             </XLink>
                         </SidebarMenuButton>
                     </SidebarMenuItem>

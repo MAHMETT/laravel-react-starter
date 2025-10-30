@@ -1,3 +1,6 @@
+import { Heading as NewHeading } from '@/components/Heading';
+import { Text } from '@/components/Text';
+
 export default function Heading({
     title,
     description,
@@ -7,9 +10,9 @@ export default function Heading({
 }) {
     return (
         <div className="mb-8 space-y-0.5">
-            <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+            <NewHeading as="h2" size="xl" weight="semibold">{title}</NewHeading>
             {description && (
-                <p className="text-sm text-muted-foreground">{description}</p>
+                <Text size="sm" color="muted">{description}</Text>
             )}
         </div>
     );

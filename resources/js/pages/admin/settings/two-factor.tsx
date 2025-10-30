@@ -1,4 +1,5 @@
 import HeadingSmall from '@/components/heading-small';
+import { Text } from '@/components/Text';
 import TwoFactorRecoveryCodes from '@/components/two-factor-recovery-codes';
 import TwoFactorSetupModal from '@/components/two-factor-setup-modal';
 import { Badge } from '@/components/ui/badge';
@@ -52,12 +53,12 @@ export default function TwoFactor({
                     {twoFactorEnabled ? (
                         <div className="flex flex-col items-start justify-start space-y-4">
                             <Badge variant="default">Enabled</Badge>
-                            <p className="text-muted-foreground">
+                            <Text color="muted" size="sm">
                                 With two-factor authentication enabled, you will
                                 be prompted for a secure, random pin during
                                 login, which you can retrieve from the
                                 TOTP-supported application on your phone.
-                            </p>
+                            </Text>
 
                             <TwoFactorRecoveryCodes
                                 recoveryCodesList={recoveryCodesList}
@@ -82,12 +83,12 @@ export default function TwoFactor({
                     ) : (
                         <div className="flex flex-col items-start justify-start space-y-4">
                             <Badge variant="destructive">Disabled</Badge>
-                            <p className="text-muted-foreground">
+                            <Text color="muted" size="sm">
                                 When you enable two-factor authentication, you
                                 will be prompted for a secure pin during login.
                                 This pin can be retrieved from a TOTP-supported
                                 application on your phone.
-                            </p>
+                            </Text>
 
                             <div>
                                 {hasSetupData ? (

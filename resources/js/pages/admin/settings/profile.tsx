@@ -8,6 +8,7 @@ import { XLink } from '@/components/ui/xlink';
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
 import InputError from '@/components/input-error';
+import { Text } from '@/components/Text';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -93,7 +94,11 @@ export default function Profile({
                                 {mustVerifyEmail &&
                                     auth.user.email_verified_at === null && (
                                         <div>
-                                            <p className="-mt-4 text-sm text-muted-foreground">
+                                            <Text 
+                                                className="-mt-4"
+                                                size="sm"
+                                                color="muted"
+                                            >
                                                 Your email address is
                                                 unverified.{' '}
                                                 <XLink
@@ -104,7 +109,7 @@ export default function Profile({
                                                     Click here to resend the
                                                     verification email.
                                                 </XLink>
-                                            </p>
+                                            </Text>
 
                                             {status ===
                                                 'verification-link-sent' && (
@@ -132,9 +137,12 @@ export default function Profile({
                                         leave="transition ease-in-out"
                                         leaveTo="opacity-0"
                                     >
-                                        <p className="text-sm text-neutral-600">
+                                        <Text 
+                                            size="sm"
+                                            color="muted"
+                                        >
                                             Saved
-                                        </p>
+                                        </Text>
                                     </Transition>
                                 </div>
                             </>

@@ -1,8 +1,13 @@
-import { dashboard } from "@/routes";
+import { dashboard, home } from "@/routes";
 import { NavItem } from "@/types";
-import { LayoutGridIcon } from "lucide-react";
+import { HomeIcon, LayoutGridIcon } from "lucide-react";
 
 export const mainNavItems: NavItem[] = [
+    {
+        title: 'Home',
+        href: home(),
+        icon: HomeIcon,
+    },
     {
         title: 'Dashboard',
         href: dashboard(),

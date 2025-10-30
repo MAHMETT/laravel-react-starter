@@ -1,3 +1,4 @@
+import { Text } from '@/components/Text';
 import { Appearance, useAppearance } from '@/hooks/use-appearance';
 import { cn } from '@/lib/utils';
 import { LucideIcon, Monitor, Moon, Sun } from 'lucide-react';
@@ -35,7 +36,7 @@ export default function AppearanceToggleTab({
                     )}
                 >
                     <Icon className="-ml-1 h-4 w-4" />
-                    <span className="ml-1.5 text-sm">{label}</span>
+                    <Text size="sm" className="ml-1.5">{label}</Text>
                 </button>
             ))}
         </div>

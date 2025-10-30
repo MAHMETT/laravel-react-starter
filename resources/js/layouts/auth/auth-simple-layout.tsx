@@ -1,4 +1,5 @@
 import AppLogoIcon from '@/components/app-logo-icon';
+import { Heading } from '@/components/Heading';
 import { XLink } from '@/components/ui/xlink';
 import { home } from '@/routes';
 import { type PropsWithChildren } from 'react';
@@ -30,10 +31,10 @@ export default function AuthSimpleLayout({
                         </XLink>
 
                         <div className="space-y-2 text-center">
-                            <h1 className="text-xl font-medium">{title}</h1>
-                            <p className="text-center text-sm text-muted-foreground">
+                            <Heading as="h1" size="xl" weight="medium">{title}</Heading>
+                            <Text align="center" size="sm" color="muted">
                                 {description}
-                            </p>
+                            </Text>
                         </div>
                     </div>
                     {children}

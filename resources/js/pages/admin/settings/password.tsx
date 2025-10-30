@@ -8,6 +8,7 @@ import { Form, Head } from '@inertiajs/react';
 import { useRef } from 'react';
 
 import HeadingSmall from '@/components/heading-small';
+import { Text } from '@/components/Text';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -131,9 +132,12 @@ export default function Password() {
                                         leave="transition ease-in-out"
                                         leaveTo="opacity-0"
                                     >
-                                        <p className="text-sm text-neutral-600">
+                                        <Text 
+                                            size="sm"
+                                            color="muted"
+                                        >
                                             Saved
-                                        </p>
+                                        </Text>
                                     </Transition>
                                 </div>
                             </>

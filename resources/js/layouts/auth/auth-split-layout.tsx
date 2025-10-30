@@ -1,4 +1,5 @@
 import AppLogoIcon from '@/components/app-logo-icon';
+import { Heading } from '@/components/Heading';
 import { XLink } from '@/components/ui/xlink';
 import { usePage } from '@inertiajs/react';
 import { home } from '@/routes';
@@ -50,10 +51,10 @@ export default function AuthSplitLayout({
                         <AppLogoIcon className="h-10 fill-current text-black sm:h-12" />
                     </XLink>
                     <div className="flex flex-col items-start gap-2 text-left sm:items-center sm:text-center">
-                        <h1 className="text-xl font-medium">{title}</h1>
-                        <p className="text-sm text-balance text-muted-foreground">
+                        <Heading as="h1" size="xl" weight="medium">{title}</Heading>
+                        <Text size="sm" color="muted">
                             {description}
-                        </p>
+                        </Text>
                     </div>
                     {children}
                 </div>

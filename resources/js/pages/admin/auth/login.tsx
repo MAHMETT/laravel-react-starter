@@ -8,6 +8,7 @@ import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
 import { register } from '@/routes';
 import { store } from '@/routes/login';
+import { Text } from '@/components/Text';
 import { request } from '@/routes/password';
 import { Form, Head } from '@inertiajs/react';
 
@@ -99,21 +100,31 @@ export default function Login({
                         </div>
 
                         {canRegister && (
-                            <div className="text-center text-sm text-muted-foreground">
+                            <Text 
+                                align="center"
+                                size="sm"
+                                color="muted"
+                            >
                                 Don't have an account?{' '}
                                 <TextLink href={register()} tabIndex={5}>
                                     Sign up
                                 </TextLink>
-                            </div>
+                            </Text>
                         )}
                     </>
                 )}
             </Form>
 
             {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <Text 
+                    className="mb-4"
+                    align="center"
+                    size="sm"
+                    weight="medium"
+                    color="success"
+                >
                     {status}
-                </div>
+                </Text>
             )}
         </AuthLayout>
     );

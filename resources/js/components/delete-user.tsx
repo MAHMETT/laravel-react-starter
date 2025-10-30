@@ -1,5 +1,6 @@
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
 import HeadingSmall from '@/components/heading-small';
+import { Text } from '@/components/Text';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import {
@@ -27,10 +28,10 @@ export default function DeleteUser() {
             />
             <div className="space-y-4 rounded-lg border border-red-100 bg-red-50 p-4 dark:border-red-200/10 dark:bg-red-700/10">
                 <div className="relative space-y-0.5 text-red-600 dark:text-red-100">
-                    <p className="font-medium">Warning</p>
-                    <p className="text-sm">
+                    <Text weight="medium">Warning</Text>
+                    <Text size="sm">
                         Please proceed with caution, this cannot be undone.
-                    </p>
+                    </Text>
                 </div>
 
                 <Dialog>

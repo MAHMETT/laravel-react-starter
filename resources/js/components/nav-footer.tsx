@@ -1,3 +1,4 @@
+import { Text } from '@/components/Text';
 import { Icon } from '@/components/icon';
 import {
     SidebarGroup,
@@ -41,7 +42,7 @@ export function NavFooter({
                                             className="h-5 w-5"
                                         />
                                     )}
-                                    <span>{item.title}</span>
+                                    <Text>{item.title}</Text>
                                 </a>
                             </SidebarMenuButton>
                         </SidebarMenuItem>

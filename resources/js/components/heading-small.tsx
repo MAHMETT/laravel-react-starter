@@ -1,3 +1,6 @@
+import { Heading } from '@/components/Heading';
+import { Text } from '@/components/Text';
+
 export default function HeadingSmall({
     title,
     description,
@@ -7,9 +10,9 @@ export default function HeadingSmall({
 }) {
     return (
         <header>
-            <h3 className="mb-0.5 text-base font-medium">{title}</h3>
+            <Heading as="h3" size="base" weight="medium" className="mb-0.5">{title}</Heading>
             {description && (
-                <p className="text-sm text-muted-foreground">{description}</p>
+                <Text size="sm" color="muted">{description}</Text>
             )}
         </header>
     );

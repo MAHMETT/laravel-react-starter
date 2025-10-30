@@ -8,6 +8,7 @@ import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Text } from '@/components/Text';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 
@@ -20,9 +21,15 @@ export default function ForgotPassword({ status }: { status?: string }) {
             <Head title="Forgot password" />
 
             {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <Text 
+                    className="mb-4"
+                    align="center"
+                    size="sm"
+                    weight="medium"
+                    color="success"
+                >
                     {status}
-                </div>
+                </Text>
             )}
 
             <div className="space-y-6">

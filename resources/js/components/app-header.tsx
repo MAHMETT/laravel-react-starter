@@ -1,5 +1,6 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { Icon } from '@/components/icon';
+import { Text } from '@/components/Text';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -92,7 +93,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                         />
                                                     )}
                                                     <span>{item.title}</span>
-</XLink>
+                                                </XLink>
                                             ))}
                                         </div>
 
@@ -173,7 +174,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                 size="icon"
                                 className="group h-9 w-9 cursor-pointer"
                             >
-                                <Search className="!size-5 opacity-80 group-hover:opacity-100" />
+                                <Search className="size-5! opacity-80 group-hover:opacity-100" />
                             </Button>
                             <div className="hidden lg:flex">
                                 {footerNavItems.map((item) => (
@@ -201,7 +202,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                 </a>
                                             </TooltipTrigger>
                                             <TooltipContent>
-                                                <p>{item.title}</p>
+                                                <Text>{item.title}</Text>
                                             </TooltipContent>
                                         </Tooltip>
                                     </TooltipProvider>

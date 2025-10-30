@@ -1,3 +1,4 @@
+import { Text } from '@/components/Text';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -144,15 +145,15 @@ export default function TwoFactorRecoveryCodes({
                                 </div>
 
                                 <div className="text-xs text-muted-foreground select-none">
-                                    <p id="regenerate-warning">
+                                    <Text id="regenerate-warning" size="xs">
                                         Each recovery code can be used once to
                                         access your account and will be removed
                                         after use. If you need more, click{' '}
-                                        <span className="font-bold">
+                                        <Text weight="bold">
                                             Regenerate Codes
-                                        </span>{' '}
+                                        </Text>{' '}
                                         above.
-                                    </p>
+                                    </Text>
                                 </div>
                             </>
                         )}
