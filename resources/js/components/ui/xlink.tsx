@@ -9,31 +9,31 @@ import { AnchorHTMLAttributes, useCallback, useMemo } from 'react';
 import { getValidUrl } from '@/lib/utils';
 import { HrefValue } from '@/types';
 
-function getHandleLink(href: HrefValue) {
-    const Url = useMemo(() => getValidUrl(href), [href])
+function useHandleLink(href: HrefValue) {
+    const url = useMemo(() => getValidUrl(href), [href]);
     const handleCopyLink = useCallback(() => {
-        navigator.clipboard.writeText(Url);
-        console.log('href value:', Url);
-    }, [Url]);
+        navigator.clipboard.writeText(url);
+        console.log('href value:', url);
+    }, [url]);
 
     const handleOpenInNewTab = useCallback(() => {
-        window.open(Url, '_blank');
-    }, [Url]);
+        window.open(url, '_blank');
+    }, [url]);
 
     const handleOpenInNewWindow = useCallback(() => {
-        window.open(Url, '_blank', 'noopener,noreferrer');
-    }, [Url]);
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }, [url]);
 
     const handleSaveLinkAs = useCallback(() => {
         const link = document.createElement('a');
-        link.href = Url;
-        link.download = Url.split('/').pop() || 'download';
+        link.href = url;
+        link.download = url.split('/').pop() || 'download';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-    }, [Url]);
+    }, [url]);
 
-    return { Url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs }
+    return { url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs };
 }
 
 interface XLinkProps extends InertiaLinkProps {
@@ -42,10 +42,10 @@ interface XLinkProps extends InertiaLinkProps {
 
 export function XLink({ children, href, removeContextMenu = false, ...props }: XLinkProps) {
 
-    const { Url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = getHandleLink(href)
+    const { url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = useHandleLink(href);
 
     if (removeContextMenu) {
-        return <Link href={Url} {...props}>
+        return <Link href={url} {...props}>
             {children}</Link>
 
     }
@@ -53,7 +53,7 @@ export function XLink({ children, href, removeContextMenu = false, ...props }: X
     return (
         <ContextMenu>
             <ContextMenuTrigger>
-                <Link href={Url} {...props}>
+                <Link href={url} {...props}>
                     {children}
                 </Link>
             </ContextMenuTrigger>
@@ -74,10 +74,10 @@ interface XALinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export function XALink({ children, href, removeContextMenu = false, ...props }: XALinkProps) {
 
-    const { Url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = getHandleLink(href);
+    const { url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = useHandleLink(href);
 
     if (removeContextMenu) {
-        return <a href={Url} {...props}>
+        return <a href={url} {...props}>
             {children}</a>
 
     }
@@ -85,7 +85,7 @@ export function XALink({ children, href, removeContextMenu = false, ...props }: 
     return (
         <ContextMenu>
             <ContextMenuTrigger>
-                <a href={Url} {...props}>
+                <a href={url} {...props}>
                     {children}
                 </a>
             </ContextMenuTrigger>

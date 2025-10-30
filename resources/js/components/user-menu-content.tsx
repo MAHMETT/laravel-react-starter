@@ -20,7 +20,6 @@ import { UserInfo } from '@/components/user-info';
 import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
 import { logout } from '@/routes';
 import { edit } from '@/routes/profile';
-import { type User } from '@/types';
 import { LogOutIcon, Settings } from 'lucide-react';
 import { useState } from 'react';
 import { UserMenuContentProps } from '@/types/components/user-menu-content';

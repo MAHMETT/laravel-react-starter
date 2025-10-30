@@ -31,7 +31,7 @@ import { UserMenuContent } from '@/components/user-menu-content';
 import { useInitials } from '@/hooks/use-initials';
 import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { type SharedData } from '@/types';
 import { XLink } from '@/components/ui/xlink';
 import { usePage } from '@inertiajs/react';
 import { Menu, Search } from 'lucide-react';

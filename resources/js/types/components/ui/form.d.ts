@@ -1,4 +1,4 @@
-import { FieldValues, FieldPath, ControllerProps } from 'react-hook-form';
+import { FieldValues, FieldPath } from 'react-hook-form';
 
 export type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -13,7 +13,7 @@ export type FormItemContextValue = {
 
 export type FormContextProps = {
   // This is a simplified type - actual implementation might vary
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 // Additional form types can be added as needed
