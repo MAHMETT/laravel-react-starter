@@ -1,5 +1,8 @@
 import { Text } from '@/components/Text';
 import AppLogoIcon from './app-logo-icon';
+import env from '@/configs/env';
+
+const appName = env.APP_SECOND_NAME
 
 export default function AppLogo() {
     return (
@@ -9,7 +12,7 @@ export default function AppLogo() {
             </div>
             <div className="ml-1 grid flex-1 text-left text-sm">
                 <Text className="mb-0.5 truncate leading-tight" weight="semibold">
-                    Laravel Starter Kit
+                    {appName}
                 </Text>
             </div>
         </>

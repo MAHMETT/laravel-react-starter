@@ -12,7 +12,7 @@ export const mainNavItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
     {
-        title: 'Home',
+        title: 'Back to Home',
         href: home(),
         icon: HomeIcon,
     },
