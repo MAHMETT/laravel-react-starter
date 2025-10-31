@@ -1,11 +1,10 @@
-import { InertiaLinkProps, Link } from '@inertiajs/react';
 import {
     ContextMenu,
     ContextMenuContent,
     ContextMenuItem,
     ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import { AnchorHTMLAttributes, ReactNode, useCallback, useMemo } from 'react';
+import { ReactNode, useCallback, useMemo } from 'react';
 import { getValidUrl } from '@/lib/utils';
 import { HrefValue } from '@/types';
 import { toast } from 'sonner'
@@ -21,7 +20,7 @@ function useHandleLink(href: HrefValue) {
         try {
             await navigator.clipboard.writeText(url);
             toast.success('Link copied to clipboard!');
-        } catch (err) {
+        } catch {
             toast.error('Failed to copy link.');
         }
     }, [url]);
@@ -91,6 +90,7 @@ export function XLink({ children, href, removeContextMenu = false, ...props }: X
 }
 
 import { XALinkProps } from '@/types/components/ui/xlink';
+import { Link } from '@inertiajs/react';
 
 export function XALink({ children, href, removeContextMenu = false, ...props }: XALinkProps) {
 
