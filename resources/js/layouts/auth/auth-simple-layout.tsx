@@ -1,10 +1,14 @@
 import AppLogoIcon from '@/components/app-logo-icon';
-import { Heading } from '@/components/Heading';
-import { Text } from '@/components/Text';
-import { XLink } from '@/components/ui/xlink';
+import { XALink, XLink } from '@/components/ui/xlink';
 import { home } from '@/routes';
 import { type PropsWithChildren } from 'react';
 import { AuthSimpleLayoutProps } from '@/types/layouts/auth/auth-layout';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { FieldDescription } from '@/components/ui/field';
+import { cn } from '@/lib/utils';
+import { CustomToast } from '@/components/ui/custom-toast';
+import { Heading } from '@/components/Heading';
+import env from '@/configs/env';
 
 export default function AuthSimpleLayout({
     children,
@@ -15,25 +19,30 @@ export default function AuthSimpleLayout({
         <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
             <div className="w-full max-w-sm">
                 <div className="flex flex-col gap-8">
-                    <div className="flex flex-col items-center gap-4">
-                        <XLink
-                            href={home()}
-                            className="flex flex-col items-center gap-2 font-medium"
-                        >
-                            <div className="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
-                                <AppLogoIcon className="size-9 fill-current text-(--foreground) dark:text-white" />
-                            </div>
-                            <span className="sr-only">{title}</span>
-                        </XLink>
-
-                        <div className="space-y-2 text-center">
-                            <Heading as="h1" size="xl" weight="medium">{title}</Heading>
-                            <Text align="center" size="sm" color="muted">
-                                {description}
-                            </Text>
-                        </div>
+                    <XLink
+                        href={home()}
+                        className="flex items-center gap-3 justify-center rounded-md"
+                    >
+                        <AppLogoIcon className="size-9 fill-current text-(--foreground) dark:text-white" />
+                        {env.APP_SECOND_NAME && <Heading >{env.APP_SECOND_NAME}</Heading>}
+                    </XLink>
+                    <div className={cn("flex flex-col gap-6")} >
+                        <Card>
+                            <CardHeader className="text-center">
+                                <CardTitle className="text-xl">{title}</CardTitle>
+                                <CardDescription>
+                                    {description}
+                                </CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                {children}
+                            </CardContent>
+                        </Card>
+                        <FieldDescription className="px-6 text-center">
+                            By clicking continue, you agree to our <XALink className='underline' href="#">Terms of Service</XALink>                            and <XALink className='underline' href="#">Privacy Policy</XALink>.
+                        </FieldDescription>
                     </div>
-                    {children}
+                    <CustomToast />
                 </div>
             </div>
         </div>

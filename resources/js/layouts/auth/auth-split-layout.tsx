@@ -1,5 +1,6 @@
 import AppLogoIcon from '@/components/app-logo-icon';
 import { Heading } from '@/components/Heading';
+import { Text } from '@/components/Text';
 import { XLink } from '@/components/ui/xlink';
 import { usePage } from '@inertiajs/react';
 import { home } from '@/routes';
