@@ -1,4 +1,4 @@
-import Heading from '@/components/heading';
+import Heading from '@/components/page-heading';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { XLink } from '@/components/ui/xlink';
