@@ -5,21 +5,35 @@ import {
     ContextMenuItem,
     ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import { AnchorHTMLAttributes, useCallback, useMemo } from 'react';
+import { AnchorHTMLAttributes, ReactNode, useCallback, useMemo } from 'react';
 import { getValidUrl } from '@/lib/utils';
 import { HrefValue } from '@/types';
+import { toast } from 'react-hot-toast'
 
 function useHandleLink(href: HrefValue) {
     const url = useMemo(() => getValidUrl(href), [href]);
-    const handleCopyLink = useCallback(() => {
-        navigator.clipboard.writeText(url);
-        console.log('href value:', url);
+
+    const handleCopyLink = useCallback(async () => {
+        if (!navigator.clipboard) {
+            toast.error('Clipboard API not supported by your browser.');
+            return;
+        }
+        try {
+            await navigator.clipboard.writeText(url);
+            toast.success('Link copied to clipboard!');
+        } catch (err) {
+            toast.error('Failed to copy link.');
+        }
     }, [url]);
 
     const handleOpenInNewTab = useCallback(() => {
-        window.open(url, '_blank');
+        const newWindow = window.open(url, '_blank');
+        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+            toast.error('Popup blocked! Please allow popups for this site.');
+        }
     }, [url]);
 
+    // handleOpenInNewWindow sudah aman dengan 'noopener,noreferrer'
     const handleOpenInNewWindow = useCallback(() => {
         window.open(url, '_blank', 'noopener,noreferrer');
     }, [url]);
@@ -36,34 +50,44 @@ function useHandleLink(href: HrefValue) {
     return { url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs };
 }
 
+const DefaultContextMenu = ({ children, href }: { children: ReactNode, href: HrefValue }) => {
+
+    const { handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = useHandleLink(href);
+
+    return (
+        <ContextMenu>
+            <ContextMenuTrigger>
+                {children}
+            </ContextMenuTrigger>
+            <ContextMenuContent>
+                <ContextMenuItem onClick={handleCopyLink}>Copy Link Address</ContextMenuItem>
+                <ContextMenuItem onClick={handleOpenInNewTab}>Open Link in New Tab</ContextMenuItem>
+                <ContextMenuItem onClick={handleOpenInNewWindow}>Open Link in New Window</ContextMenuItem>
+                <ContextMenuItem onClick={handleSaveLinkAs}>Save Page</ContextMenuItem>
+            </ContextMenuContent>
+        </ContextMenu>
+    )
+}
+
 interface XLinkProps extends InertiaLinkProps {
     removeContextMenu?: boolean
 }
 
 export function XLink({ children, href, removeContextMenu = false, ...props }: XLinkProps) {
 
-    const { url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = useHandleLink(href);
+    const { url } = useHandleLink(href);
 
     if (removeContextMenu) {
         return <Link href={url} {...props}>
             {children}</Link>
-
     }
 
     return (
-        <ContextMenu>
-            <ContextMenuTrigger>
-                <Link href={url} {...props}>
-                    {children}
-                </Link>
-            </ContextMenuTrigger>
-            <ContextMenuContent>
-                <ContextMenuItem onClick={handleCopyLink}>Copy Link Address</ContextMenuItem>
-                <ContextMenuItem onClick={handleOpenInNewTab}>Open Link in New Tab</ContextMenuItem>
-                <ContextMenuItem onClick={handleOpenInNewWindow}>Open Link in New Window</ContextMenuItem>
-                <ContextMenuItem onClick={handleSaveLinkAs}>Save Link As</ContextMenuItem>
-            </ContextMenuContent>
-        </ContextMenu>
+        <DefaultContextMenu href={href} >
+            <Link href={url} {...props}>
+                {children}
+            </Link>
+        </DefaultContextMenu>
     );
 
 }
@@ -74,27 +98,21 @@ interface XALinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export function XALink({ children, href, removeContextMenu = false, ...props }: XALinkProps) {
 
-    const { url, handleCopyLink, handleOpenInNewTab, handleOpenInNewWindow, handleSaveLinkAs } = useHandleLink(href);
+    const { url } = useHandleLink(href);
 
     if (removeContextMenu) {
-        return <a href={url} {...props}>
-            {children}</a>
-
+        return (
+            <a href={url} {...props}>
+                {children}
+            </a>
+        )
     }
 
     return (
-        <ContextMenu>
-            <ContextMenuTrigger>
-                <a href={url} {...props}>
-                    {children}
-                </a>
-            </ContextMenuTrigger>
-            <ContextMenuContent>
-                <ContextMenuItem onClick={handleCopyLink}>Copy Link Address</ContextMenuItem>
-                <ContextMenuItem onClick={handleOpenInNewTab}>Open Link in New Tab</ContextMenuItem>
-                <ContextMenuItem onClick={handleOpenInNewWindow}>Open Link in New Window</ContextMenuItem>
-                <ContextMenuItem onClick={handleSaveLinkAs}>Save Link As</ContextMenuItem>
-            </ContextMenuContent>
-        </ContextMenu>
+        <DefaultContextMenu href={href}>
+            <a href={url} {...props}>
+                {children}
+            </a>
+        </DefaultContextMenu>
     );
 }
