@@ -1,9 +1,9 @@
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
+import { XLink } from '@/components/ui/xlink';
 import { send } from '@/routes/verification';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Transition } from '@headlessui/react';
 import { Form, Head, usePage } from '@inertiajs/react';
-import { XLink } from '@/components/ui/xlink';
 
 import DeleteUser from '@/components/delete-user';
 import HeadingSmall from '@/components/heading-small';
@@ -94,7 +94,7 @@ export default function Profile({
                                 {mustVerifyEmail &&
                                     auth.user.email_verified_at === null && (
                                         <div>
-                                            <Text 
+                                            <Text
                                                 className="-mt-4"
                                                 size="sm"
                                                 color="muted"
@@ -137,10 +137,7 @@ export default function Profile({
                                         leave="transition ease-in-out"
                                         leaveTo="opacity-0"
                                     >
-                                        <Text 
-                                            size="sm"
-                                            color="muted"
-                                        >
+                                        <Text size="sm" color="muted">
                                             Saved
                                         </Text>
                                     </Transition>

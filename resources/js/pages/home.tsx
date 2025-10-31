@@ -1,9 +1,9 @@
+import { Heading } from '@/components/Heading';
+import { Text } from '@/components/Text';
+import { XLink } from '@/components/ui/xlink';
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
-import { XLink } from '@/components/ui/xlink';
-import { Heading } from '@/components/Heading';
-import { Text } from '@/components/Text';
 
 export default function Welcome({
     canRegister = true,
@@ -54,7 +54,7 @@ export default function Welcome({
                 <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
                     <main className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row">
                         <div className="flex-1 rounded-br-lg rounded-bl-lg bg-white p-6 pb-12 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:rounded-tl-lg lg:rounded-br-none lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]">
-                            <Heading 
+                            <Heading
                                 as="h1"
                                 className="mb-1"
                                 weight="medium"
@@ -62,11 +62,7 @@ export default function Welcome({
                             >
                                 Let's get started
                             </Heading>
-                            <Text 
-                                as="p"
-                                className="mb-2"
-                                color="muted"
-                            >
+                            <Text as="p" className="mb-2" color="muted">
                                 Laravel has an incredibly rich ecosystem.
                                 <br />
                                 We suggest starting with the following.

@@ -1,11 +1,10 @@
-import { useForm } from '@inertiajs/react';
+import { LoginForm } from '@/components/login-form';
+import { Text } from '@/components/Text';
 import AuthLayout from '@/layouts/auth-layout';
 import { register } from '@/routes';
 import { store } from '@/routes/login';
-import { Text } from '@/components/Text';
 import { request } from '@/routes/password';
-import { Head } from '@inertiajs/react';
-import { LoginForm } from '@/components/login-form';
+import { Head, useForm } from '@inertiajs/react';
 
 interface LoginProps {
     status?: string;
@@ -28,7 +27,7 @@ export default function Login({
         e.preventDefault();
         form.post(store.url() as string, {
             onSuccess: () => form.reset('password'),
-            onError: () => { },
+            onError: () => {},
         });
     };
 

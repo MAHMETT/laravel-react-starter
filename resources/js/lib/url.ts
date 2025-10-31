@@ -1,6 +1,12 @@
-import { HrefValue } from "@/types";
+import { HrefValue } from '@/types';
 
-export type UrlType = 'internal' | 'external' | 'mailto' | 'tel' | 'ftp' | 'unknown';
+export type UrlType =
+    | 'internal'
+    | 'external'
+    | 'mailto'
+    | 'tel'
+    | 'ftp'
+    | 'unknown';
 
 export interface UrlAnalysis {
     type: UrlType;
@@ -102,4 +108,3 @@ export function analyzeUrl(input: HrefValue): UrlAnalysis {
         href,
     };
 }
-

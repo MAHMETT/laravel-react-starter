@@ -9,10 +9,10 @@ import AppLayout from '@/layouts/admin/app-layout';
 import SettingsLayout from '@/layouts/admin/settings/layout';
 import { disable, enable, show } from '@/routes/two-factor';
 import { type BreadcrumbItem } from '@/types';
+import { TwoFactorProps } from '@/types/pages/admin/settings/two-factor';
 import { Form, Head } from '@inertiajs/react';
 import { ShieldBan, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
-import { TwoFactorProps } from '@/types/pages/admin/settings/two-factor';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

@@ -32,12 +32,22 @@ export function getValidUrl(href: HrefValue) {
         }
 
         // Check for ApiHref type { method, path }
-        if ('method' in href && 'path' in href && typeof href.path === 'string') {
+        if (
+            'method' in href &&
+            'path' in href &&
+            typeof href.path === 'string'
+        ) {
             return href.path;
         }
 
         // Check for InertiaHref type { component, props? }
-        if ('component' in href && href.props && typeof href.props === 'object' && 'url' in href.props && typeof href.props.url === 'string') {
+        if (
+            'component' in href &&
+            href.props &&
+            typeof href.props === 'object' &&
+            'url' in href.props &&
+            typeof href.props.url === 'string'
+        ) {
             return href.props.url;
         }
     }
@@ -49,4 +59,3 @@ export function getValidUrl(href: HrefValue) {
         return '/';
     }
 }
-

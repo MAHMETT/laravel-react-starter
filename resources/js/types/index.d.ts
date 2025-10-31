@@ -60,6 +60,10 @@ export interface ApiHref {
     path: string;
 }
 
-export type HrefValue = string | BasicUrl | InertiaHref | ApiHref | null | undefined;
-
-
+export type HrefValue =
+    | string
+    | BasicUrl
+    | InertiaHref
+    | ApiHref
+    | null
+    | undefined;

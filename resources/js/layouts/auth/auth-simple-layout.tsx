@@ -1,14 +1,20 @@
 import AppLogoIcon from '@/components/app-logo-icon';
-import { XALink, XLink } from '@/components/ui/xlink';
-import { home } from '@/routes';
-import { type PropsWithChildren } from 'react';
-import { AuthSimpleLayoutProps } from '@/types/layouts/auth/auth-layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FieldDescription } from '@/components/ui/field';
-import { cn } from '@/lib/utils';
-import { CustomToast } from '@/components/ui/custom-toast';
 import { Heading } from '@/components/Heading';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { CustomToast } from '@/components/ui/custom-toast';
+import { FieldDescription } from '@/components/ui/field';
+import { XALink, XLink } from '@/components/ui/xlink';
 import env from '@/configs/env';
+import { cn } from '@/lib/utils';
+import { home } from '@/routes';
+import { AuthSimpleLayoutProps } from '@/types/layouts/auth/auth-layout';
+import { type PropsWithChildren } from 'react';
 
 export default function AuthSimpleLayout({
     children,
@@ -21,25 +27,33 @@ export default function AuthSimpleLayout({
                 <div className="flex flex-col gap-8">
                     <XLink
                         href={home()}
-                        className="flex items-center gap-3 justify-center rounded-md"
+                        className="flex items-center justify-center gap-3 rounded-md"
                     >
                         <AppLogoIcon className="size-9 fill-current text-(--foreground) dark:text-white" />
-                        {env.APP_SECOND_NAME && <Heading >{env.APP_SECOND_NAME}</Heading>}
+                        {env.APP_SECOND_NAME && (
+                            <Heading>{env.APP_SECOND_NAME}</Heading>
+                        )}
                     </XLink>
-                    <div className={cn("flex flex-col gap-6")} >
+                    <div className={cn('flex flex-col gap-6')}>
                         <Card>
                             <CardHeader className="text-center">
-                                <CardTitle className="text-xl">{title}</CardTitle>
-                                <CardDescription>
-                                    {description}
-                                </CardDescription>
+                                <CardTitle className="text-xl">
+                                    {title}
+                                </CardTitle>
+                                <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                {children}
-                            </CardContent>
+                            <CardContent>{children}</CardContent>
                         </Card>
                         <FieldDescription className="px-6 text-center">
-                            By clicking continue, you agree to our <XALink className='underline' href="#">Terms of Service</XALink>                            and <XALink className='underline' href="#">Privacy Policy</XALink>.
+                            By clicking continue, you agree to our{' '}
+                            <XALink className="underline" href="#">
+                                Terms of Service
+                            </XALink>{' '}
+                            and{' '}
+                            <XALink className="underline" href="#">
+                                Privacy Policy
+                            </XALink>
+                            .
                         </FieldDescription>
                     </div>
                     <CustomToast />

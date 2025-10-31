@@ -1,6 +1,6 @@
 // Credit: https://usehooks-ts.com/
-import { useCallback, useState } from 'react';
 import { CopiedValue, CopyFn } from '@/types/hooks/use-clipboard';
+import { useCallback, useState } from 'react';
 
 export function useClipboard(): [CopiedValue, CopyFn] {
     const [copiedText, setCopiedText] = useState<CopiedValue>(null);

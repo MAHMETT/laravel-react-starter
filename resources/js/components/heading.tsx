@@ -10,9 +10,13 @@ export default function Heading({
 }) {
     return (
         <div className="mb-8 space-y-0.5">
-            <NewHeading as="h2" size="xl" weight="semibold">{title}</NewHeading>
+            <NewHeading as="h2" size="xl" weight="semibold">
+                {title}
+            </NewHeading>
             {description && (
-                <Text size="sm" color="muted">{description}</Text>
+                <Text size="sm" color="muted">
+                    {description}
+                </Text>
             )}
         </div>
     );

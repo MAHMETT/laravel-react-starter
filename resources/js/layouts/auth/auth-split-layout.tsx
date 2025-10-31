@@ -2,11 +2,11 @@ import AppLogoIcon from '@/components/app-logo-icon';
 import { Heading } from '@/components/Heading';
 import { Text } from '@/components/Text';
 import { XLink } from '@/components/ui/xlink';
-import { usePage } from '@inertiajs/react';
 import { home } from '@/routes';
 import { type SharedData } from '@/types';
-import { type PropsWithChildren } from 'react';
 import { AuthSplitLayoutProps } from '@/types/layouts/auth/auth-layout';
+import { usePage } from '@inertiajs/react';
+import { type PropsWithChildren } from 'react';
 
 export default function AuthSplitLayout({
     children,
@@ -48,7 +48,9 @@ export default function AuthSplitLayout({
                         <AppLogoIcon className="h-10 fill-current text-black sm:h-12" />
                     </XLink>
                     <div className="flex flex-col items-start gap-2 text-left sm:items-center sm:text-center">
-                        <Heading as="h1" size="xl" weight="medium">{title}</Heading>
+                        <Heading as="h1" size="xl" weight="medium">
+                            {title}
+                        </Heading>
                         <Text size="sm" color="muted">
                             {description}
                         </Text>

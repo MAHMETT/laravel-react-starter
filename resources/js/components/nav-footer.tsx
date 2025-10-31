@@ -28,8 +28,10 @@ export function NavFooter({
             <SidebarGroupContent>
                 <SidebarMenu>
                     {items.map((item) => {
-                        const urlInfo = analyzeUrl(item.href)
-                        const NavigateComponent = urlInfo.isExternal ? XALink : XLink
+                        const urlInfo = analyzeUrl(item.href);
+                        const NavigateComponent = urlInfo.isExternal
+                            ? XALink
+                            : XLink;
                         return (
                             <SidebarMenuItem key={item.title}>
                                 <SidebarMenuButton
@@ -51,7 +53,7 @@ export function NavFooter({
                                     </NavigateComponent>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
-                        )
+                        );
                     })}
                 </SidebarMenu>
             </SidebarGroupContent>

@@ -3,12 +3,10 @@ import {
     getAlignClasses,
     getColorClasses,
     getSizeClasses,
-    getWeightClasses
+    getWeightClasses,
 } from './Text';
 
-import {
-    HeadingProps
-} from '@/types/components/heading';
+import { HeadingProps } from '@/types/components/heading';
 
 export function Heading({
     as: Tag = 'h1',
@@ -21,18 +19,22 @@ export function Heading({
     muted = false,
     ...props
 }: HeadingProps) {
-    const weightClasses = getWeightClasses(weight)
-    const sizeClasses = getSizeClasses(size)
-    const alignClasses = getAlignClasses(align)
-    const colorClasses = getColorClasses(color, muted)
+    const weightClasses = getWeightClasses(weight);
+    const sizeClasses = getSizeClasses(size);
+    const alignClasses = getAlignClasses(align);
+    const colorClasses = getColorClasses(color, muted);
 
     const classes = cn(
         sizeClasses,
         colorClasses,
         weightClasses,
         alignClasses,
-        className
+        className,
     );
 
-    return <Tag className={classes} {...props}>{children}</Tag>;
+    return (
+        <Tag className={classes} {...props}>
+            {children}
+        </Tag>
+    );
 }

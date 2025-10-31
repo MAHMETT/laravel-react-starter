@@ -6,21 +6,21 @@ export type CarouselOptions = UseCarouselParameters[0];
 export type CarouselPlugin = UseCarouselParameters[1];
 
 export interface CarouselProps {
-  opts?: CarouselOptions;
-  plugins?: CarouselPlugin[];
-  orientation?: 'horizontal' | 'vertical';
-  setApi?: (api: CarouselApi) => void;
-  className?: string;
-  children?: React.ReactNode;
+    opts?: CarouselOptions;
+    plugins?: CarouselPlugin[];
+    orientation?: 'horizontal' | 'vertical';
+    setApi?: (api: CarouselApi) => void;
+    className?: string;
+    children?: React.ReactNode;
 }
 
 export interface CarouselContextProps {
-  carouselRef: ReturnType<typeof useEmblaCarousel>[0];
-  api: ReturnType<typeof useEmblaCarousel>[1];
-  opts?: CarouselOptions;
-  orientation: 'horizontal' | 'vertical';
-  scrollPrev: () => void;
-  scrollNext: () => void;
-  canScrollPrev: boolean;
-  canScrollNext: boolean;
+    carouselRef: ReturnType<typeof useEmblaCarousel>[0];
+    api: ReturnType<typeof useEmblaCarousel>[1];
+    opts?: CarouselOptions;
+    orientation: 'horizontal' | 'vertical';
+    scrollPrev: () => void;
+    scrollNext: () => void;
+    canScrollPrev: boolean;
+    canScrollNext: boolean;
 }

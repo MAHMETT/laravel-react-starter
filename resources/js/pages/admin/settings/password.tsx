@@ -132,10 +132,7 @@ export default function Password() {
                                         leave="transition ease-in-out"
                                         leaveTo="opacity-0"
                                     >
-                                        <Text 
-                                            size="sm"
-                                            color="muted"
-                                        >
+                                        <Text size="sm" color="muted">
                                             Saved
                                         </Text>
                                     </Transition>

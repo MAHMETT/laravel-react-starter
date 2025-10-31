@@ -1,8 +1,8 @@
 import { Text } from '@/components/Text';
-import AppLogoIcon from './app-logo-icon';
 import env from '@/configs/env';
+import AppLogoIcon from './app-logo-icon';
 
-const appName = env.APP_SECOND_NAME
+const appName = env.APP_SECOND_NAME;
 
 export default function AppLogo() {
     return (
@@ -11,7 +11,10 @@ export default function AppLogo() {
                 <AppLogoIcon className="size-5 fill-current text-white dark:text-white" />
             </div>
             <div className="ml-1 grid flex-1 text-left text-sm">
-                <Text className="mb-0.5 truncate leading-tight" weight="semibold">
+                <Text
+                    className="mb-0.5 truncate leading-tight"
+                    weight="semibold"
+                >
                     {appName}
                 </Text>
             </div>

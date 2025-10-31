@@ -1,5 +1,4 @@
 import { SidebarInset } from '@/components/ui/sidebar';
-import * as React from 'react';
 import { AppContentProps } from '@/types/components/app-content';
 
 export function AppContent({

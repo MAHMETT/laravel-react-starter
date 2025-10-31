@@ -1,9 +1,8 @@
-import { useForm } from '@inertiajs/react';
-import { login } from '@/routes';
-import { store } from '@/routes/register';
-import { Head } from '@inertiajs/react';
 import { SignupForm } from '@/components/signup-form';
 import AuthLayout from '@/layouts/auth-layout';
+import { login } from '@/routes';
+import { store } from '@/routes/register';
+import { Head, useForm } from '@inertiajs/react';
 
 export default function Register() {
     const form = useForm({
@@ -27,7 +26,7 @@ export default function Register() {
             description="Enter your details below to create your account"
         >
             <Head title="Register" />
-            
+
             <SignupForm
                 data={form.data}
                 setData={form.setData}

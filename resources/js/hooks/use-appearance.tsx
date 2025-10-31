@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
 import { Appearance } from '@/types/hooks/appearance';
+import { useCallback, useEffect, useState } from 'react';
 
 // Re-export the type for backward compatibility
 export type { Appearance };

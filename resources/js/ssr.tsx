@@ -1,10 +1,10 @@
+import env from '@/configs/env';
 import { createInertiaApp } from '@inertiajs/react';
 import createServer from '@inertiajs/react/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import ReactDOMServer from 'react-dom/server';
-import env from '@/configs/env';
 
-const appName = env.APP_NAME
+const appName = env.APP_NAME;
 
 createServer((page) =>
     createInertiaApp({

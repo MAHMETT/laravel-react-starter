@@ -7,9 +7,9 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { XLink } from '@/components/ui/xlink';
-import { usePage } from '@inertiajs/react';
 import { resolveUrl } from '@/lib/utils';
 import { type NavItem } from '@/types';
+import { usePage } from '@inertiajs/react';
 
 export function NavMain({ items = [] }: { items: NavItem[] }) {
     const page = usePage();

@@ -1,4 +1,4 @@
-export type ENV_APP = 'local' | 'production' | 'testing' | 'staging'
+export type ENV_APP = 'local' | 'production' | 'testing' | 'staging';
 export interface EnvConfig {
     // App Configuration
     APP_NAME: string;
@@ -76,4 +76,3 @@ export interface EnvConfig {
     // Vite Configuration
     VITE_APP_NAME: string;
 }
-

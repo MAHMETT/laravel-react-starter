@@ -8,11 +8,11 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { regenerateRecoveryCodes } from '@/routes/two-factor';
+import { TwoFactorRecoveryCodesProps } from '@/types/components/two-factor-recovery-codes';
 import { Form } from '@inertiajs/react';
 import { Eye, EyeOff, LockKeyhole, RefreshCw } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import AlertError from './alert-error';
-import { TwoFactorRecoveryCodesProps } from '@/types/components/two-factor-recovery-codes';
 
 export default function TwoFactorRecoveryCodes({
     recoveryCodesList,

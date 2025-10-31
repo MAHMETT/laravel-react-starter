@@ -15,14 +15,14 @@ import {
     DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { XLink } from '@/components/ui/xlink';
-import { router } from '@inertiajs/react';
 import { UserInfo } from '@/components/user-info';
 import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
 import { logout } from '@/routes';
 import { edit } from '@/routes/profile';
+import { UserMenuContentProps } from '@/types/components/user-menu-content';
+import { router } from '@inertiajs/react';
 import { LogOutIcon, Settings } from 'lucide-react';
 import { useState } from 'react';
-import { UserMenuContentProps } from '@/types/components/user-menu-content';
 
 export function UserMenuContent({ user }: UserMenuContentProps) {
     const cleanup = useMobileNavigation();

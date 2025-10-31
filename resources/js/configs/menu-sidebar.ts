@@ -1,6 +1,6 @@
-import { dashboard, home } from "@/routes";
-import { NavItem } from "@/types";
-import { HomeIcon, LayoutGridIcon } from "lucide-react";
+import { dashboard, home } from '@/routes';
+import { NavItem } from '@/types';
+import { HomeIcon, LayoutGridIcon } from 'lucide-react';
 
 export const mainNavItems: NavItem[] = [
     {
@@ -17,4 +17,3 @@ export const footerNavItems: NavItem[] = [
         icon: HomeIcon,
     },
 ];
-
