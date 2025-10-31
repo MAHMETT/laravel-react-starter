@@ -17,6 +17,8 @@ export interface CarouselProps {
 export interface CarouselContextProps {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
   api: ReturnType<typeof useEmblaCarousel>[1];
+  opts?: CarouselOptions;
+  orientation: 'horizontal' | 'vertical';
   scrollPrev: () => void;
   scrollNext: () => void;
   canScrollPrev: boolean;

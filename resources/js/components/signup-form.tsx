@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
-    Card,
     CardContent,
     CardDescription,
     CardHeader,
@@ -15,33 +14,29 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import TextLink from "@/components/text-link";
-
-interface SignupFormProps {
-    className?: string;
-    data: {
-        name: string;
-        email: string;
-        password: string;
-        password_confirmation: string;
-    };
-    setData: (field: string, value: any) => void;
-    errors: Record<string, string>;
-    processing: boolean;
-    onSubmit: (e: React.FormEvent) => void;
-    loginUrl: any; // RouteDefinition type
-    [key: string]: any;
-}
+import { SignupFormProps } from '@/types/components/signup-form';
 
 export function SignupForm({
+    className,
     data,
     setData,
     errors,
     processing,
     onSubmit,
     loginUrl,
+    ...props
 }: SignupFormProps) {
     return (
-        <form onSubmit={onSubmit}>
+        <div className={cn("flex flex-col gap-6", className)} {...props}>
+            <div>
+                <CardHeader className="text-center">
+                    <CardTitle className="text-xl">Create your account</CardTitle>
+                    <CardDescription>
+                        Enter your email below to create your account
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form onSubmit={onSubmit}>
             <FieldGroup>
                 <Field>
                     <FieldLabel htmlFor="name">Full Name</FieldLabel>
@@ -114,6 +109,13 @@ export function SignupForm({
                     </FieldDescription>
                 </Field>
             </FieldGroup>
-        </form>
+                    </form>
+                </CardContent>
+            </div>
+            <FieldDescription className="px-6 text-center">
+                By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+                and <a href="#">Privacy Policy</a>.
+            </FieldDescription>
+        </div>
     )
 }

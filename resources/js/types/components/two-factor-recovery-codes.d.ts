@@ -1,4 +1,5 @@
 export interface TwoFactorRecoveryCodesProps {
-  codes: string[];
-  onRefresh: () => void;
+    recoveryCodesList: string[];
+    fetchRecoveryCodes: () => Promise<void>;
+    errors: string[];
 }

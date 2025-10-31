@@ -1,13 +1,11 @@
 export interface TwoFactorSetupModalProps {
-  isOpen: boolean;
-  onOpenChange: (open: boolean) => void;
-  user: {
-    id: number;
-    name: string;
-    email: string;
-    two_factor_enabled: boolean;
-  };
-  qrCode: string;
-  secret: string;
-  recoveryCodes: string[];
+    isOpen: boolean;
+    onClose: () => void;
+    requiresConfirmation: boolean;
+    twoFactorEnabled: boolean;
+    qrCodeSvg: string | null;
+    manualSetupKey: string | null;
+    clearSetupData: () => void;
+    fetchSetupData: () => Promise<void>;
+    errors: string[];
 }

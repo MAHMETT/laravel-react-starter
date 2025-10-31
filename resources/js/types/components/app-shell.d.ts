@@ -1,4 +1,4 @@
 export interface AppShellProps {
-  children: React.ReactNode;
-  className?: string;
+    children: React.ReactNode;
+    variant?: 'header' | 'sidebar';
 }

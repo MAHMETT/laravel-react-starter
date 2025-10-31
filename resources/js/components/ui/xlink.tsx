@@ -69,9 +69,7 @@ const DefaultContextMenu = ({ children, href }: { children: ReactNode, href: Hre
     )
 }
 
-interface XLinkProps extends InertiaLinkProps {
-    removeContextMenu?: boolean
-}
+import { XLinkProps } from '@/types/components/ui/xlink';
 
 export function XLink({ children, href, removeContextMenu = false, ...props }: XLinkProps) {
 
@@ -92,9 +90,7 @@ export function XLink({ children, href, removeContextMenu = false, ...props }: X
 
 }
 
-interface XALinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    removeContextMenu?: boolean
-}
+import { XALinkProps } from '@/types/components/ui/xlink';
 
 export function XALink({ children, href, removeContextMenu = false, ...props }: XALinkProps) {
 

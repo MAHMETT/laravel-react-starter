@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
-    Card,
     CardContent,
     CardDescription,
     CardHeader,
@@ -20,27 +19,10 @@ import TextLink from "@/components/text-link";
 import { Spinner } from "./ui/spinner"
 import { useEffect } from "react"
 import { toast } from "sonner"
-
-interface LoginFormProps {
-    className?: string;
-    data: {
-        email: string;
-        password: string;
-        remember: boolean;
-    };
-    setData: (field: string, value: any) => void;
-    errors: Record<string, string>;
-    processing: boolean;
-    onSubmit: (e: React.FormEvent) => void;
-    canResetPassword?: boolean;
-    canRegister?: boolean;
-    registerUrl?: any; // RouteDefinition type is not available here
-    forgotPasswordUrl?: any; // RouteDefinition type is not available here
-    status?: string;
-    [key: string]: any;
-}
+import { LoginFormProps } from '@/types/components/login-form';
 
 export function LoginForm({
+    className,
     data,
     setData,
     errors,
@@ -51,6 +33,7 @@ export function LoginForm({
     registerUrl = "#",
     forgotPasswordUrl = "#",
     status,
+    ...props
 }: LoginFormProps) {
     useEffect(() => {
         if (status) {
@@ -58,7 +41,16 @@ export function LoginForm({
         }
     })
     return (
-        <form onSubmit={onSubmit}>
+        <div className={cn("flex flex-col gap-6", className)} {...props}>
+            <div>
+                <CardHeader className="text-center">
+                    <CardTitle className="text-xl">Welcome back</CardTitle>
+                    <CardDescription>
+                        Login with your Apple or Google account
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form onSubmit={onSubmit}>
             <FieldGroup>
                 <Field>
                     <Button variant="outline" type="button">
@@ -143,6 +135,13 @@ export function LoginForm({
                     }
                 </Field>
             </FieldGroup>
-        </form>
+                    </form>
+                </CardContent>
+            </div>
+            <FieldDescription className="px-6 text-center">
+                By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+                and <a href="#">Privacy Policy</a>.
+            </FieldDescription>
+        </div>
     )
 }

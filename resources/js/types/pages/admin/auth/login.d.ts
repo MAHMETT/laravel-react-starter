@@ -1,4 +1,5 @@
 export interface LoginProps {
-  status?: string;
-  hasErrors: boolean;
+    status?: string;
+    canResetPassword: boolean;
+    canRegister: boolean;
 }
