@@ -8,7 +8,7 @@ import {
 import { AnchorHTMLAttributes, ReactNode, useCallback, useMemo } from 'react';
 import { getValidUrl } from '@/lib/utils';
 import { HrefValue } from '@/types';
-import { toast } from 'react-hot-toast'
+import { toast } from 'sonner'
 
 function useHandleLink(href: HrefValue) {
     const url = useMemo(() => getValidUrl(href), [href]);
