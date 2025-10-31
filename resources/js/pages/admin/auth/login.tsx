@@ -54,7 +54,7 @@ export default function Login({
                             </div>
 
                             <div className="grid gap-2">
-                                <div className="flex items-center">
+                                <div className="flex items-center justify-between">
                                     <Label htmlFor="password">Password</Label>
                                     {canResetPassword && (
                                         <TextLink
@@ -100,7 +100,7 @@ export default function Login({
                         </div>
 
                         {canRegister && (
-                            <Text 
+                            <Text
                                 align="center"
                                 size="sm"
                                 color="muted"
@@ -116,7 +116,7 @@ export default function Login({
             </Form>
 
             {status && (
-                <Text 
+                <Text
                     className="mb-4"
                     align="center"
                     size="sm"
