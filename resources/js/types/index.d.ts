@@ -15,11 +15,15 @@ export interface NavGroup {
     items: NavItem[];
 }
 
-export interface NavItem {
+export interface NavItemBase {
     title: string;
     href: NonNullable<InertiaLinkProps['href']>;
     icon?: LucideIcon | null;
     isActive?: boolean;
+}
+
+export interface NavItem extends NavItemBase {
+    items?: NavItemBase[];
 }
 
 export interface SharedData {
