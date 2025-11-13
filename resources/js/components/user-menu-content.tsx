@@ -1,3 +1,4 @@
+import { Text } from '@/components/Text';
 import { Button } from '@/components/ui/button';
 import {
     Dialog,
@@ -14,6 +15,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
+import { Icon } from '@/components/ui/icon';
 import { XLink } from '@/components/ui/xlink';
 import { UserInfo } from '@/components/user-info';
 import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
@@ -21,7 +23,7 @@ import { logout } from '@/routes';
 import { edit } from '@/routes/profile';
 import { UserMenuContentProps } from '@/types/components/user-menu-content';
 import { router } from '@inertiajs/react';
-import { LogOutIcon, Settings } from 'lucide-react';
+import { LogOutIcon, SettingsIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export function UserMenuContent({ user }: UserMenuContentProps) {
@@ -49,14 +51,14 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
             <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
                     <XLink
-                        className="block w-full"
+                        className="flex w-full"
                         href={edit()}
                         as="button"
                         prefetch
                         onClick={cleanup}
                     >
-                        <Settings className="mr-2" />
-                        Settings
+                        <Icon iconNode={SettingsIcon} color={'muted'} />
+                        <Text size="sm">Settings</Text>
                     </XLink>
                 </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -68,12 +70,12 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
                 >
                     <DialogTrigger asChild>
                         <button
-                            className="flex w-full cursor-default items-center rounded-sm px-2 py-1.5 text-sm transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                            className="flex w-full cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
                             onClick={() => setShowConfirmDialog(true)}
                             data-test="logout-button"
                         >
-                            <LogOutIcon className="mr-2 size-5 text-muted-foreground" />
-                            Log out
+                            <Icon iconNode={LogOutIcon} color={'muted'} />
+                            <Text size="sm">Log out</Text>
                         </button>
                     </DialogTrigger>
                     <DialogContent>
