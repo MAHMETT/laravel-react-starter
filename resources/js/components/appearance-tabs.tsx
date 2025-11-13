@@ -1,4 +1,5 @@
 import { Text } from '@/components/Text';
+import { Icon } from '@/components/ui/icon';
 import { Appearance, useAppearance } from '@/hooks/use-appearance';
 import { cn } from '@/lib/utils';
 import { LucideIcon, Monitor, Moon, Sun } from 'lucide-react';
@@ -24,7 +25,7 @@ export default function AppearanceToggleTab({
             )}
             {...props}
         >
-            {tabs.map(({ value, icon: Icon, label }) => (
+            {tabs.map(({ value, icon, label }) => (
                 <button
                     key={value}
                     onClick={() => updateAppearance(value)}
@@ -35,7 +36,7 @@ export default function AppearanceToggleTab({
                             : 'text-neutral-500 hover:bg-neutral-200/60 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-700/60',
                     )}
                 >
-                    <Icon className="-ml-1 h-4 w-4" />
+                    <Icon iconNode={icon} size={'default'} className="-ml-1" />
                     <Text size="sm" className="ml-1.5">
                         {label}
                     </Text>

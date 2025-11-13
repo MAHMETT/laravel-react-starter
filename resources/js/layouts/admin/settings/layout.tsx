@@ -1,37 +1,11 @@
 import Heading from '@/components/page-heading';
 import { Button } from '@/components/ui/button';
+import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
 import { XLink } from '@/components/ui/xlink';
+import { settingSidebarNavItems } from '@/configs/menu-sidebar';
 import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
-import { edit as editAppearance } from '@/routes/appearance';
-import { edit } from '@/routes/profile';
-import { show } from '@/routes/two-factor';
-import { edit as editPassword } from '@/routes/user-password';
-import { type NavItem } from '@/types';
 import { type PropsWithChildren } from 'react';
-
-const sidebarNavItems: NavItem[] = [
-    {
-        title: 'Profile',
-        href: edit(),
-        icon: null,
-    },
-    {
-        title: 'Password',
-        href: editPassword(),
-        icon: null,
-    },
-    {
-        title: 'Two-Factor Auth',
-        href: show(),
-        icon: null,
-    },
-    {
-        title: 'Appearance',
-        href: editAppearance(),
-        icon: null,
-    },
-];
 
 export default function SettingsLayout({ children }: PropsWithChildren) {
     // When server-side rendering, we only render the layout on the client...
@@ -51,7 +25,7 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
             <div className="flex flex-col lg:flex-row lg:space-x-12">
                 <aside className="w-full max-w-xl lg:w-48">
                     <nav className="flex flex-col space-y-1 space-x-0">
-                        {sidebarNavItems.map((item, index) => (
+                        {settingSidebarNavItems.map((item, index) => (
                             <Button
                                 key={`${resolveUrl(item.href)}-${index}`}
                                 size="sm"
@@ -66,7 +40,10 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
                             >
                                 <XLink href={item.href}>
                                     {item.icon && (
-                                        <item.icon className="h-4 w-4" />
+                                        <Icon
+                                            iconNode={item.icon}
+                                            size={'default'}
+                                        />
                                     )}
                                     {item.title}
                                 </XLink>

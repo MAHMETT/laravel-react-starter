@@ -1,5 +1,5 @@
 import { Text } from '@/components/Text';
-import { Icon } from '@/components/icon';
+import { Icon } from '@/components/ui/icon';
 import {
     SidebarGroup,
     SidebarGroupContent,
@@ -46,7 +46,7 @@ export function NavFooter({
                                         {item.icon && (
                                             <Icon
                                                 iconNode={item.icon}
-                                                className="h-5 w-5"
+                                                size={'default'}
                                             />
                                         )}
                                         <Text>{item.title}</Text>

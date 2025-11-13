@@ -1,4 +1,5 @@
 import { Text } from '@/components/Text';
+import { Icon } from '@/components/ui/icon';
 import {
     SidebarGroup,
     SidebarGroupLabel,
@@ -27,7 +28,7 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
                             tooltip={{ children: item.title }}
                         >
                             <XLink href={item.href} prefetch>
-                                {item.icon && <item.icon />}
+                                {item.icon && <Icon iconNode={item.icon} />}
                                 <Text>{item.title}</Text>
                             </XLink>
                         </SidebarMenuButton>

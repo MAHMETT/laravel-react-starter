@@ -5,8 +5,9 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Icon } from '@/components/ui/icon';
 import { useAppearance } from '@/hooks/use-appearance';
-import { Monitor, Moon, Sun } from 'lucide-react';
+import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react';
 import { HTMLAttributes } from 'react';
 
 export default function AppearanceToggleDropdown({
@@ -18,11 +19,11 @@ export default function AppearanceToggleDropdown({
     const getCurrentIcon = () => {
         switch (appearance) {
             case 'dark':
-                return <Moon className="h-5 w-5" />;
+                return <Icon iconNode={MoonIcon} size={'default'} />;
             case 'light':
-                return <Sun className="h-5 w-5" />;
+                return <Icon iconNode={SunIcon} size={'default'} />;
             default:
-                return <Monitor className="h-5 w-5" />;
+                return <Icon iconNode={MonitorIcon} size={'default'} />;
         }
     };
 
@@ -42,13 +43,13 @@ export default function AppearanceToggleDropdown({
                 <DropdownMenuContent align="end">
                     <DropdownMenuItem onClick={() => updateAppearance('light')}>
                         <span className="flex items-center gap-2">
-                            <Sun className="h-5 w-5" />
+                            <Icon iconNode={SunIcon} size={'default'} />
                             Light
                         </span>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => updateAppearance('dark')}>
                         <span className="flex items-center gap-2">
-                            <Moon className="h-5 w-5" />
+                            <Icon iconNode={MoonIcon} size={'default'} />
                             Dark
                         </span>
                     </DropdownMenuItem>
@@ -56,7 +57,7 @@ export default function AppearanceToggleDropdown({
                         onClick={() => updateAppearance('system')}
                     >
                         <span className="flex items-center gap-2">
-                            <Monitor className="h-5 w-5" />
+                            <Icon iconNode={MonitorIcon} size={'default'} />
                             System
                         </span>
                     </DropdownMenuItem>

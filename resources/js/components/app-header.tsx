@@ -1,5 +1,4 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { Icon } from '@/components/icon';
 import { Text } from '@/components/Text';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -8,6 +7,7 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Icon } from '@/components/ui/icon';
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -36,7 +36,7 @@ import { dashboard } from '@/routes';
 import { type SharedData } from '@/types';
 import { AppHeaderProps } from '@/types/components/app-header';
 import { usePage } from '@inertiajs/react';
-import { Menu, Search } from 'lucide-react';
+import { MenuIcon, Search } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 
@@ -60,7 +60,10 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                     size="icon"
                                     className="mr-2 h-[34px] w-[34px]"
                                 >
-                                    <Menu className="h-5 w-5" />
+                                    <Icon
+                                        iconNode={MenuIcon}
+                                        size={'default'}
+                                    />
                                 </Button>
                             </SheetTrigger>
                             <SheetContent
@@ -84,8 +87,8 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                 >
                                                     {item.icon && (
                                                         <Icon
+                                                            size={'default'}
                                                             iconNode={item.icon}
-                                                            className="h-5 w-5"
                                                         />
                                                     )}
                                                     <span>{item.title}</span>
@@ -105,7 +108,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                     {item.icon && (
                                                         <Icon
                                                             iconNode={item.icon}
-                                                            className="h-5 w-5"
+                                                            size={'default'}
                                                         />
                                                     )}
                                                     <span>{item.title}</span>
@@ -149,7 +152,8 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                             {item.icon && (
                                                 <Icon
                                                     iconNode={item.icon}
-                                                    className="mr-2 h-4 w-4"
+                                                    size={'default'}
+                                                    className="mr-2"
                                                 />
                                             )}
                                             {item.title}
@@ -192,7 +196,8 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                                     {item.icon && (
                                                         <Icon
                                                             iconNode={item.icon}
-                                                            className="size-5 opacity-80 group-hover:opacity-100"
+                                                            size={'default'}
+                                                            className="opacity-80 group-hover:opacity-100"
                                                         />
                                                     )}
                                                 </a>
